@@ -1,5 +1,6 @@
 .DS_Store
 .idea
+build
 npm_modules
 npm_modules/*
 node_modules
