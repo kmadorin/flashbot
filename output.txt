@@ -1,0 +1,587 @@
+Profitable?  Asset Order      Exchange Order  Input                   Output                  Profit                  Timestamp
+-----------  ---------------  --------------  ----------------------  ----------------------  ----------------------  -------------------------
+true         WETH, DAI, WETH  ZRX, 1Split     1                       1.006724298869750462    0.0067242988697504      2020-12-30T13:37:34-06:00
+
+Error playing sound!
+Fetching market data @ 2020-12-30T13:37:35-06:00 ...
+
+Order partially filled
+#####: receipt:  { transactionHash:
+   '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+  transactionIndex: 0,
+  blockHash:
+   '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+  blockNumber: 11557326,
+  from: '0x90f8bf6a479f320ead074411a4b0e7944ea8c9c1',
+  to: '0x8e79264af0efe8d16248882451d840acd1e1e8b7',
+  gasUsed: 535330,
+  cumulativeGasUsed: 535330,
+  contractAddress: null,
+  status: true,
+  logsBloom:
+   '0x000000000010040001002000000008000000041000000000000002000080000040000000004008800000000220000000020000000800004101000000102000000000000100000040040000180000008210000102014000001000000000000001100000000200800244008000200008300100003000000c450000c05000010020000000000000000000000040008080000000810200409000010001040008810282104400000000020010800010108000000000000000000010040008102000000002000a200200000800100020080000000002000000600000401000020021000010201000000800014400000000000000022020000000110000040000001040',
+  events:
+   { '0':
+      { logIndex: 1,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_17e658b9',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '1':
+      { logIndex: 2,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x1E0447b19BB6EcFdAe1e4AE1694b0C3659614e4e',
+        type: 'mined',
+        id: 'log_afda5109',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '2':
+      { logIndex: 3,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x1E0447b19BB6EcFdAe1e4AE1694b0C3659614e4e',
+        type: 'mined',
+        id: 'log_fa71f607',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '3':
+      { logIndex: 4,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_ee287bc5',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '4':
+      { logIndex: 5,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x1E0447b19BB6EcFdAe1e4AE1694b0C3659614e4e',
+        type: 'mined',
+        id: 'log_90400bdf',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '5':
+      { logIndex: 10,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_b0d2f62e',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '6':
+      { logIndex: 11,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x61935CbDd02287B511119DDb11Aeb42F1593b7Ef',
+        type: 'mined',
+        id: 'log_8507863a',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '7':
+      { logIndex: 12,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_0055f85f',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '8':
+      { logIndex: 13,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+        type: 'mined',
+        id: 'log_76db001c',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '9':
+      { logIndex: 14,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_7335d971',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '10':
+      { logIndex: 15,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_2967521a',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '11':
+      { logIndex: 20,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+        type: 'mined',
+        id: 'log_b41a003b',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '12':
+      { logIndex: 21,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+        type: 'mined',
+        id: 'log_bcfee8d5',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '13':
+      { logIndex: 22,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+        type: 'mined',
+        id: 'log_9b1a06ab',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '14':
+      { logIndex: 23,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x72A8f00913226B49E63cb7f27bc31ee5cFd09646',
+        type: 'mined',
+        id: 'log_d573f6bf',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '15':
+      { logIndex: 24,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x72A8f00913226B49E63cb7f27bc31ee5cFd09646',
+        type: 'mined',
+        id: 'log_cd9a544a',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '16':
+      { logIndex: 25,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+        type: 'mined',
+        id: 'log_68960135',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '17':
+      { logIndex: 26,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_c82a230f',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '18':
+      { logIndex: 27,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_e4f64d55',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '19':
+      { logIndex: 28,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x111111125434b319222CdBf8C261674aDB56F3ae',
+        type: 'mined',
+        id: 'log_32a02798',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '20':
+      { logIndex: 31,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+        type: 'mined',
+        id: 'log_2a0f04cb',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '21':
+      { logIndex: 33,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x1E0447b19BB6EcFdAe1e4AE1694b0C3659614e4e',
+        type: 'mined',
+        id: 'log_99d88f44',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '22':
+      { logIndex: 34,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+        type: 'mined',
+        id: 'log_94372a67',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     '23':
+      { logIndex: 35,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x1E0447b19BB6EcFdAe1e4AE1694b0C3659614e4e',
+        type: 'mined',
+        id: 'log_25fb84cd',
+        returnValues: Result {},
+        event: undefined,
+        signature: null,
+        raw: [Object] },
+     FlashTokenBeforeBalance:
+      { logIndex: 0,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_04c026dc',
+        returnValues: [Result],
+        event: 'FlashTokenBeforeBalance',
+        signature:
+         '0x6ce12bc2c73b407b64835ac87b9ddc5aaaea1d72c43b7fc7cd4a7d889bb39a8e',
+        raw: [Object] },
+     FlashTokenAfterBalance:
+      { logIndex: 6,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_9eab9406',
+        returnValues: [Result],
+        event: 'FlashTokenAfterBalance',
+        signature:
+         '0x18632a467043bbd55a7a8f567277238b56a179719da2d13f6ff04a1599d7aa62',
+        raw: [Object] },
+     StartBalance:
+      { logIndex: 7,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_45ae90d6',
+        returnValues: [Result],
+        event: 'StartBalance',
+        signature:
+         '0xf4368a0b072748289cf6359dfabe56e43f800b15b140869dd2e3fbbb6f82235d',
+        raw: [Object] },
+     ZRXBeforeDAIBalance:
+      { logIndex: 8,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_1b7d605f',
+        returnValues: [Result],
+        event: 'ZRXBeforeDAIBalance',
+        signature:
+         '0xca5c0cb4f009dc0352116bf2e133fba9eb58ccc5a9312df7eda6c522aa470c2e',
+        raw: [Object] },
+     ZRXBeforeWETHBalance:
+      { logIndex: 9,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_ba70fe50',
+        returnValues: [Result],
+        event: 'ZRXBeforeWETHBalance',
+        signature:
+         '0xbff1a539e8ac3035efeefba9abcf65404d73912bec570f96a3c09d49cf18d1ec',
+        raw: [Object] },
+     ZRXAfterDAIBalance:
+      { logIndex: 16,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_c7c27287',
+        returnValues: [Result],
+        event: 'ZRXAfterDAIBalance',
+        signature:
+         '0x1abbb45a113be6ccc2dc6036227ae0873f9b62716a2cb549808dd488ec78e681',
+        raw: [Object] },
+     ZRXAfterWETHBalance:
+      { logIndex: 17,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_0eb55cc9',
+        returnValues: [Result],
+        event: 'ZRXAfterWETHBalance',
+        signature:
+         '0xbd2d83c4509459420acc026c8292e25e2f9a3c920bbb3946266cd4758eff0ef7',
+        raw: [Object] },
+     OneInchBeforeWETHBalance:
+      { logIndex: 18,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_958a6200',
+        returnValues: [Result],
+        event: 'OneInchBeforeWETHBalance',
+        signature:
+         '0x4241d4279cd8a920991126b6b8d1fd5f317d6339de2844e5aa619a96c2ebf630',
+        raw: [Object] },
+     OneInchBeforeDAIBalance:
+      { logIndex: 19,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_1e016297',
+        returnValues: [Result],
+        event: 'OneInchBeforeDAIBalance',
+        signature:
+         '0x02eb4ec33a4184e9bb5a20a1e146cc588b2d9f39b260db719652a1182b8911a1',
+        raw: [Object] },
+     OneInchAfterWETHBalance:
+      { logIndex: 29,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_501ed12b',
+        returnValues: [Result],
+        event: 'OneInchAfterWETHBalance',
+        signature:
+         '0xc4b2886fefd97d9131fb24eaf2ce0e02a4598ecbb037740914f68a6b3c2308db',
+        raw: [Object] },
+     OneInchAfterDAIBalance:
+      { logIndex: 30,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_aeb6af90',
+        returnValues: [Result],
+        event: 'OneInchAfterDAIBalance',
+        signature:
+         '0xe492e0402bce03fa4a331ccce6323f49b1dd91840ee86cbcc7f7454309835194',
+        raw: [Object] },
+     EndBalance:
+      { logIndex: 32,
+        transactionIndex: 0,
+        transactionHash:
+         '0xf5a6167521d9cd3119eff851cd42c965198f3889f0b7e41b424b2543ce22d574',
+        blockHash:
+         '0x0fc85789ee6f879895aaa97bcd953bddd4409c65a973e6ae3a42e7524e25d217',
+        blockNumber: 11557326,
+        address: '0x8e79264af0EfE8D16248882451D840acd1E1E8b7',
+        type: 'mined',
+        id: 'log_7a8395ae',
+        returnValues: [Result],
+        event: 'EndBalance',
+        signature:
+         '0x55f952f52b983578f7ca4ebbe9042c9bce728e59f683246540084cc95b781b0d',
+        raw: [Object] } } }
+###: StartBalance: Result { '0': '60000000000000000000', balance: '60000000000000000000' }
+###: EndBalance: Result { '0': '60006654298869750462', balance: '60006654298869750462' }
+###: ZRXBeforeDAIBalance: Result { '0': '0', balance: '0' }
+###: ZRXAfterDAIBalance: Result {'0': '749556119366997605438', balance: '749556119366997605438' }
+###: ZRXBeforeWETHBalance: Result { '0': '60000000000000000000', balance: '60000000000000000000' }
+###: ZRXAfterWETHBalance: Result { '0': '58999930000000000000', balance: '58999930000000000000' }
+###: OneInchBeforeWETHBalance: Result { '0': '58999930000000000000', balance: '58999930000000000000' }
+###: OneInchAfterWETHBalance: Result { '0': '60006654298869750462', balance: '60006654298869750462' }
+###: OneInchBeforeDAIBalance: Result {'0': '749556119366997605438',balance: '749556119366997605438' }
+###: OneInchAfterDAIBalance: Result { '0': '0', balance: '0' }
+###: FlashTokenBeforeBalance: Result { '0': '50000000000000000000', balance: '50000000000000000000' }
+###: FlashTokenAfterBalance: Result { '0': '60000000000000000000', balance: '60000000000000000000' }

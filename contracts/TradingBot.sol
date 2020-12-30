@@ -180,7 +180,22 @@ contract DyDxFlashLoan is Structs {
 // SPDX-License-Identifier: MIT
 
 contract TradingBot is DyDxFlashLoan {
+    event StartBalance(uint256 balance);
+    event EndBalance(uint256 balance);
+    event ZRXBeforeDAIBalance(uint256 balance);
+    event ZRXAfterDAIBalance(uint256 balance);
+    event ZRXBeforeWETHBalance(uint256 balance);
+    event ZRXAfterWETHBalance(uint256 balance);
+    event OneInchBeforeDAIBalance(uint256 balance);
+    event OneInchAfterDAIBalance(uint256 balance);
+    event OneInchBeforeWETHBalance(uint256 balance);
+    event OneInchAfterWETHBalance(uint256 balance);
+    event FlashTokenBeforeBalance(uint256 balance);
+    event FlashTokenAfterBalance(uint256 balance);
+
     uint256 public loan;
+//    uint256 reserve = 2 ether;
+
 
     // Addresses
     address payable OWNER;
@@ -210,6 +225,8 @@ contract TradingBot is DyDxFlashLoan {
 
     function getFlashloan(address flashToken, uint256 flashAmount, address arbToken, bytes calldata zrxData, bytes calldata oneInchData) external payable onlyOwner {
         uint256 balanceBefore = IERC20(flashToken).balanceOf(address(this));
+        emit FlashTokenBeforeBalance(balanceBefore);
+
         bytes memory data = abi.encode(flashToken, flashAmount, balanceBefore, arbToken, zrxData, oneInchData);
         flashloan(flashToken, flashAmount, data);
         // execution goes to `callFunction`
@@ -225,6 +242,7 @@ contract TradingBot is DyDxFlashLoan {
         (address flashToken, uint256 flashAmount, uint256 balanceBefore, address arbToken, bytes memory zrxData, bytes memory oneInchData) = abi
         .decode(data, (address, uint256, uint256, address, bytes, bytes));
         uint256 balanceAfter = IERC20(flashToken).balanceOf(address(this));
+        emit FlashTokenAfterBalance(balanceAfter);
         require(
             balanceAfter - balanceBefore == flashAmount,
             "contract did not get the loan"
@@ -243,12 +261,14 @@ contract TradingBot is DyDxFlashLoan {
     function _arb(address _fromToken, address _toToken, uint256 _fromAmount, bytes memory _0xData, bytes memory _oneInchData) internal {
         // Track original balance
         uint256 _startBalance = IERC20(_fromToken).balanceOf(address(this));
+        emit StartBalance(_startBalance);
 
         // Perform the arb trade
         _trade(_fromToken, _toToken, _fromAmount, _0xData, _oneInchData);
 
         // Track result balance
         uint256 _endBalance = IERC20(_fromToken).balanceOf(address(this));
+        emit EndBalance(_endBalance);
 
         // Require that arbitrage is profitable
         require(_endBalance > _startBalance, "End balance must exceed start balance.");
@@ -262,17 +282,20 @@ contract TradingBot is DyDxFlashLoan {
         // Track the balance of the token RECEIVED from the trade
         uint256 _beforeBalance = IERC20(_toToken).balanceOf(address(this));
 
+        emit ZRXBeforeDAIBalance(_beforeBalance);
+        emit ZRXBeforeWETHBalance(IERC20(_fromToken).balanceOf(address(this)));
         // Swap on 0x: give _fromToken, receive _toToken
         _zrxSwap(_fromToken, _fromAmount, _0xData);
 
         // Calculate the how much of the token we received
         uint256 _afterBalance = IERC20(_toToken).balanceOf(address(this));
-
+        emit ZRXAfterDAIBalance(_afterBalance);
+        emit ZRXAfterWETHBalance(IERC20(_fromToken).balanceOf(address(this)));
         // Read _toToken balance after swap
         uint256 _toAmount = _afterBalance - _beforeBalance;
 
         // Swap on 1Inch: give _toToken, receive _fromToken
-        // _oneInchSwap(_toToken, _toAmount, _1inchData);
+         _oneInchSwap(_toToken, _fromToken, _toAmount, _1inchData);
     }
 
     function zrxSwap(address _from, uint256 _amount, bytes memory _calldataHexString) onlyOwner public payable {
@@ -285,27 +308,36 @@ contract TradingBot is DyDxFlashLoan {
         _fromIERC20.approve(ZRX_ERC20_PROXY_ADDRESS, _amount);
 
         // Swap tokens
-        address(ZRX_EXCHANGE_ADDRESS).call.value(msg.value)(_calldataHexString);
+        (bool success,) = address(ZRX_EXCHANGE_ADDRESS).call.value(msg.value)(_calldataHexString);
 
+        require(success, 'SWAP_CALL_FAILED');
         // Reset approval
         _fromIERC20.approve(ZRX_ERC20_PROXY_ADDRESS, 0);
     }
 
-    function oneInchSwap(address _from, uint256 _amount, bytes memory _oneInchCallData) onlyOwner public payable {
-        _oneInchSwap(_from, _amount, _oneInchCallData);
+    function oneInchSwap(address _from, address _to, uint256 _amount, bytes memory _oneInchCallData) onlyOwner public payable {
+        _oneInchSwap(_from, _to, _amount, _oneInchCallData);
     }
 
     //_oneInchCalldata is a tx data from /swap endpoint of 1inch api
-    function _oneInchSwap(address _from, uint256 _amount, bytes memory _oneInchCallData) internal {
+    function _oneInchSwap(address _from, address _to, uint256 _amount, bytes memory _oneInchCallData) internal {
         // Setup contracts
         IERC20 _fromIERC20 = IERC20(_from);
+        uint256 _beforeBalance = IERC20(_to).balanceOf(address(this));
 
+        emit OneInchBeforeWETHBalance(_beforeBalance);
+        emit OneInchBeforeDAIBalance(IERC20(_from).balanceOf(address(this)));
         // Approve tokens
         _fromIERC20.approve(ONE_INCH_ADDRESS, _amount);
 
         // Swap tokens: give _from, get _to
-        ONE_INCH_ADDRESS.call.value(msg.value)(_oneInchCallData);
+        (bool success,) = ONE_INCH_ADDRESS.call.value(msg.value)(_oneInchCallData);
+        require(success, '1INCH_SWAP_CALL_FAILED');
 
+        uint256 _afterBalance = IERC20(_to).balanceOf(address(this));
+
+        emit OneInchAfterWETHBalance(_afterBalance);
+        emit OneInchAfterDAIBalance(IERC20(_from).balanceOf(address(this)));
         // Reset approval
         _fromIERC20.approve(ONE_INCH_ADDRESS, 0);
     }

@@ -21,10 +21,12 @@ But uses 1inch v2 API instead of 1inch v1 (OneSplit) smart contract
 npm i
 ```
 
+Fill in .env file like in .env.example
+
 Create a local ethereum mainnet fork:
 
 ```
-NODE_OPTIONS="--max-old-space-size=4096" ganache-cli --fork https://mainnet.infura.io/v3/<YOUR INFURA KEY> -p 9545 --gasLimit 0xfffffffffff -d --mnemonic "YOUR MNEMONIC HERE"
+NODE_OPTIONS="--max-old-space-size=4096" ganache-cli --fork https://mainnet.infura.io/v3/<YOUR INFURA KEY> -p 8545 --gasLimit 0xfffffffffff -d --mnemonic "YOUR MNEMONIC HERE"
 ```
 
 Compile and deploy FlashBot smart contract

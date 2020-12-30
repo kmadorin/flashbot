@@ -17,13 +17,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(cors({credentials: true, origin: '*'}))
 
 // WEB3 CONFIG
-// const web3 = new Web3(process.env.RPC_URL)
-// web3.eth.accounts.wallet.add(process.env.PRIVATE_KEY)
+const web3 = new Web3(process.env.RPC_URL)
+web3.eth.accounts.wallet.add(process.env.PRIVATE_KEY)
 
-const HDWalletProvider = require('@truffle/hdwallet-provider');
-const mnemonic = process.env.MNEMONIC;
-const web3 = new Web3(new HDWalletProvider(mnemonic, process.env.RPC_URL));
-
+// const HDWalletProvider = require('@truffle/hdwallet-provider');
+// const mnemonic = process.env.MNEMONIC;
+// const web3 = new Web3(new HDWalletProvider(mnemonic, process.env.RPC_URL));
 
 const ZRX_EXCHANGE_ADDRESS = '0x61935CbDd02287B511119DDb11Aeb42F1593b7Ef'
 const ZRX_EXCHANGE_ABI = require('./abis/ZrxExchange');
@@ -32,7 +31,8 @@ const zrxExchangeContract = new web3.eth.Contract(ZRX_EXCHANGE_ABI, ZRX_EXCHANGE
 const TRADER_ABI = require('./abis/Trader');
 const TRADER_ADDRESS = process.env.CONTRACT_ADDRESS
 const traderContract = new web3.eth.Contract(TRADER_ABI, TRADER_ADDRESS);
-const FILL_ORDER_ABI = require('./abis/FillOrder');
+const FILL_ORDER_ABI = {"constant":false,"inputs":[{"components":[{"internalType":"address","name":"makerAddress","type":"address"},{"internalType":"address","name":"takerAddress","type":"address"},{"internalType":"address","name":"feeRecipientAddress","type":"address"},{"internalType":"address","name":"senderAddress","type":"address"},{"internalType":"uint256","name":"makerAssetAmount","type":"uint256"},{"internalType":"uint256","name":"takerAssetAmount","type":"uint256"},{"internalType":"uint256","name":"makerFee","type":"uint256"},{"internalType":"uint256","name":"takerFee","type":"uint256"},{"internalType":"uint256","name":"expirationTimeSeconds","type":"uint256"},{"internalType":"uint256","name":"salt","type":"uint256"},{"internalType":"bytes","name":"makerAssetData","type":"bytes"},{"internalType":"bytes","name":"takerAssetData","type":"bytes"},{"internalType":"bytes","name":"makerFeeAssetData","type":"bytes"},{"internalType":"bytes","name":"takerFeeAssetData","type":"bytes"}],"internalType":"struct LibOrder.Order","name":"order","type":"tuple"},{"internalType":"uint256","name":"takerAssetFillAmount","type":"uint256"},{"internalType":"bytes","name":"signature","type":"bytes"}],"name":"fillOrder","outputs":[{"components":[{"internalType":"uint256","name":"makerAssetFilledAmount","type":"uint256"},{"internalType":"uint256","name":"takerAssetFilledAmount","type":"uint256"},{"internalType":"uint256","name":"makerFeePaid","type":"uint256"},{"internalType":"uint256","name":"takerFeePaid","type":"uint256"},{"internalType":"uint256","name":"protocolFeePaid","type":"uint256"}],"internalType":"struct LibFillResults.FillResults","name":"fillResults","type":"tuple"}],"payable":true,"stateMutability":"payable","type":"function"}
+// const FILL_ORDER_ABI = require('./abis/FillOrder');
 
 // ASSET SYMBOLS
 const DAI = 'DAI'
@@ -177,7 +177,8 @@ async function checkArb(args) {
 	const oneInchExchangeData = await fetchOneInchExchangeData({
 		fromToken: ASSET_ADDRESSES[assetOrder[1]],
 		toToken: ASSET_ADDRESSES[assetOrder[2]],
-		fromAddress: process.env.ADDRESS,
+		fromAddress: process.env.CONTRACT_ADDRESS,
+		destReceiver: process.env.CONTRACT_ADDRESS,
 		amount: zrxOrder.makerAssetAmount
 	});
 
@@ -235,7 +236,7 @@ async function checkArb(args) {
 // TRADE EXECUTION
 async function trade(flashTokenSymbol, flashTokenAddress, arbTokenAddress, orderJson, fillAmount, oneInchExchangeData) {
 	const accounts = await web3.eth.getAccounts();
-	const FLASH_AMOUNT = toTokens('10000', flashTokenSymbol) // 10,000 WETH
+	const FLASH_AMOUNT = toTokens('10', flashTokenSymbol) // 10,000 WETH
 	const FROM_TOKEN = flashTokenAddress // WETH
 	const FROM_AMOUNT = fillAmount // '1000000'
 	const TO_TOKEN = arbTokenAddress
@@ -263,6 +264,67 @@ async function trade(flashTokenSymbol, flashTokenAddress, arbTokenAddress, order
 
 	const data = web3.eth.abi.encodeFunctionCall(FILL_ORDER_ABI, [orderTuple, takerAssetFillAmount, signature])
 
+	// const receipt = await traderContract.methods.zrxSwap(
+	// 	FROM_TOKEN, // address flashToken,
+	// 	FLASH_AMOUNT, // uint256 flashAmount,
+	// 	data, // bytes calldata zrxData,
+	// ).send({
+	// 	from: accounts[0],
+	// 	gas: process.env.GAS_LIMIT,
+	// 	gasPrice: web3.utils.toWei(process.env.GAS_PRICE, 'Gwei')
+	// });
+	//
+	// console.log('#####: receipt: ', receipt)
+
+	traderContract.events.StartBalance().on('data', function(event) {
+		console.log("###: StartBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.EndBalance().on('data', function(event) {
+		console.log("###: EndBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.ZRXBeforeDAIBalance().on('data', function(event) {
+		console.log("###: ZRXBeforeDAIBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.ZRXAfterDAIBalance().on('data', function(event) {
+		console.log("###: ZRXAfterDAIBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.ZRXBeforeWETHBalance().on('data', function(event) {
+		console.log("###: ZRXBeforeWETHBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.ZRXAfterWETHBalance().on('data', function(event) {
+		console.log("###: ZRXAfterWETHBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.OneInchBeforeWETHBalance().on('data', function(event) {
+		console.log("###: OneInchBeforeWETHBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.OneInchAfterWETHBalance().on('data', function(event) {
+		console.log("###: OneInchAfterWETHBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.OneInchBeforeDAIBalance().on('data', function(event) {
+		console.log("###: OneInchBeforeDAIBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.OneInchAfterDAIBalance().on('data', function(event) {
+		console.log("###: OneInchAfterDAIBalance:", event.returnValues)
+	}).on('error', console.error);
+
+
+	traderContract.events.FlashTokenBeforeBalance().on('data', function(event) {
+		console.log("###: FlashTokenBeforeBalance:", event.returnValues)
+	}).on('error', console.error);
+
+	traderContract.events.FlashTokenAfterBalance().on('data', function(event) {
+		console.log("###: FlashTokenAfterBalance:", event.returnValues)
+	}).on('error', console.error);
+
 	// Perform Trade
 	const receipt = await traderContract.methods.getFlashloan(
 		FROM_TOKEN, // address flashToken,
@@ -277,6 +339,7 @@ async function trade(flashTokenSymbol, flashTokenAddress, arbTokenAddress, order
 	});
 
 	console.log('#####: receipt: ', receipt)
+
 }
 
 
