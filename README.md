@@ -16,6 +16,7 @@ But uses 1inch v2 API instead of 1inch v1 (OneSplit) smart contract
     * Checks if arbitrage was profitable
     * If not profitable reverts transaction, if yes - pays borrowed WETH back to DY/DX
     
+[Example output](https://github.com/kmadorin/flashbot/blob/master/output.txt)
 ## How to run and test
 ```
 npm i
