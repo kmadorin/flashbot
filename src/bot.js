@@ -190,7 +190,7 @@ async function checkArb(args) {
 
 		// Calculate estimated gas cost
 		let estimatedGasFee = process.env.ESTIMATED_GAS.toString() * web3.utils.toWei(process.env.GAS_PRICE.toString(), 'Gwei')
-		estimatedGasFee = web3.utils.fromWei(estimatedGasFee.toString(), 'Ether')
+		// estimatedGasFee = web3.utils.fromWei(estimatedGasFee.toString(), 'Ether')
 
 		// Calculate net profit
 		let netProfit = outputAssetAmount - inputAssetAmount - estimatedGasFee
